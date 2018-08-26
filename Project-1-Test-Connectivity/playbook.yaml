@@ -1,0 +1,6 @@
+-
+    name: Playbook to test basic command
+    hosts: all
+    tasks:
+        - name: Ping Test
+          ping:
