@@ -1,0 +1,6 @@
+-
+    name: Playbook to run script from master host to slave hosts
+    hosts: all
+    tasks:
+        - name: Copy Files
+          script: /home/ec2-user/test1.sh 
