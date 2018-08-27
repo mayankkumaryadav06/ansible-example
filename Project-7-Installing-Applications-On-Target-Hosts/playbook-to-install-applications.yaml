@@ -1,0 +1,16 @@
+# Installing httpd on target hosts
+-
+    name: Playbook to install apache2 and other packages
+    hosts: all
+    tasks:
+        -
+           name: Install apache2 and other packages
+           yum:
+             name: httpd
+             state: installed
+           become: true
+           with_items:
+             - apache2
+             - libapache2-mod-wsgi
+             - python-pip
+             - python-virtualenv
