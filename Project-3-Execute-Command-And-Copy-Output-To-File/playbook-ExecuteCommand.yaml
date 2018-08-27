@@ -1,0 +1,6 @@
+-
+    name: Playbook to execute command and save output
+    hosts: all
+    tasks:
+        - name: Execute Command and copy output
+          shell: cat /etc/hosts > /home/ec2-user/hosts_output.txt
