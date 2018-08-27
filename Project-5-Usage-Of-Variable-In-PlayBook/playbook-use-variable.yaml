@@ -10,3 +10,11 @@
              path: /etc/resolv.conf
              line: 'nameserver {{ dns_server }}'
            become: true
+
+        -
+           name: Delete the line dns_server from /etc/resolv.conf
+           lineinfile :
+             path: /etc/resolv.conf
+             state: absent
+             line: 'nameserver {{ dns_server }}'
+           become: true
