@@ -1,0 +1,12 @@
+-
+    name: Playbook to use variable
+    hosts: all
+    vars:
+      dns_server: 192.168.99.1
+    tasks:
+        -
+           name: Add a new line DNS Server in /etc/resolv.conf
+           lineinfile:
+             path: /etc/resolv.conf
+             line: 'nameserver {{ dns_server }}'
+           become: true
