@@ -1,0 +1,19 @@
+{
+  "logger": {
+    "title": "Remote Sync"
+  },
+  "uploadOnSave": true,
+  "useAtomicWrites": true,
+  "deleteLocal": false,
+  "hostname": "35.172.114.144",
+  "port": "22",
+  "target": "/home/ec2-user",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "ec2-user",
+  "keyfile": "C:\\Users\\mik\\Downloads\\OOOGenerator.pem",
+  "watch": [],
+  "transport": "scp"
+}

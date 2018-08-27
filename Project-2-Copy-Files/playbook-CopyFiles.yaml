@@ -1,0 +1,8 @@
+-
+    name: Playbook to copy files from target to source
+    hosts: all
+    tasks:
+        - name: Copy Files
+          copy:
+            src: /home/ec2-user/a.txt
+            dest: /home/ec2-user/c.txt
