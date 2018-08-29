@@ -12,4 +12,5 @@
            become: yes
 
         - name: To check if service status is running or not
-          command: service httpd status
+          become: true
+          service: service httpd status
