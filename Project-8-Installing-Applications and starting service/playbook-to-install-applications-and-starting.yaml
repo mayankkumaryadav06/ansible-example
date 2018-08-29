@@ -10,3 +10,6 @@
         -  name: Start service httpd
            service: name=httpd enabled=yes state=started
            become: yes
+
+        - name: To check if service status is running or not
+          command: service httpd status

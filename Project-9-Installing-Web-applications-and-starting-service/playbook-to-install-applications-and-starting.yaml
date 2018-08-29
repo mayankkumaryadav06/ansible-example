@@ -1,0 +1,27 @@
+# Installing httpd on target hosts
+-
+    name: Playbook to install and start httpd via yum and service command
+    hosts: all
+    tasks:
+        -  name: Install httpd and other packages
+           yum:
+             name: "{{item}}"
+             state: present
+           with_items:
+              - httpd
+              - mod_wsgi.x86_64
+              - python-pip
+              - python-virtualenv
+           become: true
+
+        - name: Starting service apache2/httpd
+          service: name=httpd enabled=yes state=started
+
+        - name: Starting service mod_wsgi
+          apache2_module: name=mod_wsgi.x86_64 state=present
+          notify: restart httpd #This command will restart httpd only when
+                                # only when there is a change in mod_wsgi
+
+    handlers:
+      - name: restart httpd
+        service: name=httpd state=restarted

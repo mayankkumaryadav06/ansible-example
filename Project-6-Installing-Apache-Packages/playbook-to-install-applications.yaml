@@ -1,12 +1,15 @@
 # Installing httpd on target hosts
 -
-    name: Playbook to install httpd , nginx
+    name: Playbook to install httpd and othe packages
     hosts: all
     tasks:
-        -  name: Install httpd, nginx
+        -  name: Install httpd and other packages
            yum:
              name: "{{item}}"
              state: present
            with_items:
               - httpd
+              - mod_wsgi.x86_64
+              - python-pip
+              - python-virtualenv
            become: true
