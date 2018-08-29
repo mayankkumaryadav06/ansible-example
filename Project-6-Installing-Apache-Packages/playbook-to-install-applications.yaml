@@ -1,0 +1,12 @@
+# Installing httpd on target hosts
+-
+    name: Playbook to install httpd , nginx
+    hosts: all
+    tasks:
+        -  name: Install httpd, nginx
+           yum:
+             name: "{{item}}"
+             state: present
+           with_items:
+              - httpd
+           become: true
