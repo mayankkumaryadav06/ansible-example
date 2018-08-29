@@ -6,3 +6,4 @@
           copy:
             src: /home/ec2-user/a.txt
             dest: /home/ec2-user/c.txt
+            mode: 0777

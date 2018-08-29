@@ -1,2 +1,2 @@
 slave-1 ansible_host=ansibleslave-1 ansible_ssh_user=ec2-user
-slave-2 ansible_host=ansibleslave-2 ansible_ssh_user=ec2-user
+slave-4 ansible_host=ansibleslave-4 ansible_ssh_user=ec2-user
