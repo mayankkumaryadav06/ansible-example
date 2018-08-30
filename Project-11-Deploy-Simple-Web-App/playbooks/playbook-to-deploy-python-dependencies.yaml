@@ -1,6 +1,6 @@
 # Installing httpd on target hosts
 -
-    name: Playbook to install and start httpd via yum and service command
+    name: Playbook to install python Dependencies.
     hosts: all
     tasks:
       - name: Deploy python Dependencies
