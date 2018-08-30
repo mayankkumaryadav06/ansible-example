@@ -1,0 +1,18 @@
+# Installing httpd on target hosts
+-
+    name: Playbook to install and start httpd via yum and service command
+    hosts: all
+    tasks:
+      - name: Deploy python Dependencies
+        yum:
+            name: "{{item}}"
+            state: present
+        with_items:
+          - python
+          - python-setuptools
+          - python-devel
+          #- build-essential  Not required for Linux
+          - python-pip
+          #- python-mysqldb For Linux it's MySQL-python
+          - MySQL-python
+        become: true
