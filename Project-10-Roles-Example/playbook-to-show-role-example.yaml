@@ -1,0 +1,7 @@
+# Installing httpd on target hosts
+-
+    name: Playbook to install and start httpd via yum and service command
+    hosts: all
+    roles:
+      - control
+    

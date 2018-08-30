@@ -1,0 +1,22 @@
+---
+# tasks file for control
+  -  name: Install httpd and other packages
+     yum:
+       name: "{{item}}"
+       state: present
+     with_items:
+        - httpd
+        - mod_wsgi.x86_64
+        - python-pip
+        - python-virtualenv
+     become: true
+     notify: restart httpd
+
+  # - name: Starting service apache2/httpd
+  #   service: name=httpd enabled=yes state=started
+
+
+  # - name: Starting service mod_wsgi
+  #   apache2_module: name=mod_wsgi.x86_64 state=present
+  #   notify: restart httpd #This command will restart httpd only when
+                          # only when there is a change in mod_wsgi

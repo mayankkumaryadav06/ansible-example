@@ -1,0 +1,5 @@
+      - name: restart httpd
+        copy:
+          src: /home/ec2-user/a.txt
+          dest: /home/ec2-user/c.txt_{{var1}}
+          mode: 0777
