@@ -1,3 +1,4 @@
 ---
 # vars file for control
 # - date : "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+var1: "Var-from-var-main.yml"
