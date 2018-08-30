@@ -2,15 +2,39 @@
 -
     name: Playbook to install mysql via rpm
     hosts: all
+    gather_facts: no
+    vars:
+      - mysql_port: 3306
+      - mysql_root: root
+      - mysql_root_pass: Passw0rd@123
+
     tasks:
       - name: Copy and install mysql via rpm
         yum:
             name: https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
             state: present
         become: true
+        tags: ['install']
 
       - name: yum install mysql packages and repo
         yum:
           name: mysql-community-server
           enablerepo: mysql80-community
+        become: true
+        tags: ['install']
+
+      - name: start mysql service
+        service: name=mysqld state=started enabled=yes
+        tags: ['service']
+        become: true
+
+      - name: create database
+        mysql_db:
+          name: employee_db
+          state: present
+          login_host: localhost
+          login_port: "{{ mysql_port }}"
+          login_user: "{{ mysql_root }}"
+          login_password: "{{ mysql_root_pass }}"
+        tags: ['database_creation']
         become: true
