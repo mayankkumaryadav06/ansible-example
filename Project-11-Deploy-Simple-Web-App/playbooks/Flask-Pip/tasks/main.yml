@@ -1,0 +1,22 @@
+      - name: Deploy flask
+        pip:
+            name: "{{item}}"
+            state: present
+        with_items:
+          - flask
+          - flask-mysql
+        become: true
+        tags: ['install']
+
+      - name: Copy application file
+        copy:
+          src: app.py
+          dest: /home/ec2-user/app1.py
+          mode: 0777
+        become: true
+        tags: ['copy-file']
+
+      - name: Start Flask Application
+        shell: "FLASK_APP=/home/ec2-user/app.py nohup flask run --host=0.0.0.0 &"
+        #shell command didn't run via command module
+        become: true

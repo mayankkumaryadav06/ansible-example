@@ -1,0 +1,5 @@
+---
+# vars file for Flask-Mysql
+mysql_port: 3306
+mysql_root: root
+mysql_root_pass: Passw0rd@123
