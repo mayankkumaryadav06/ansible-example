@@ -1,0 +1,26 @@
+# Installing httpd on target hosts
+-
+    name: Playbook to install flask and Dependencies.
+    hosts: all
+    tasks:
+      - name: Deploy flask
+        pip:
+            name: "{{item}}"
+            state: present
+        with_items:
+          - flask
+          - flask-mysql
+        become: true
+        tags: ['install']
+
+      - name: Copy application file
+        copy:
+          src: /home/ec2-user/Project-11-Deploy-Simple-Web-App/app.py
+          dest: /home/ec2-user
+          mode: 0777
+        become: true
+        tags: ['copy-file']
+
+      - name: Start Flask Application
+        shell: "FLASK_APP=/home/ec2-user/app.py flask run --host=0.0.0.0"
+        become: true
