@@ -3,3 +3,4 @@
 mysql_port: 3306
 mysql_root: root
 mysql_root_pass: Passw0rd@123
+mysql_db_name: employee_db2

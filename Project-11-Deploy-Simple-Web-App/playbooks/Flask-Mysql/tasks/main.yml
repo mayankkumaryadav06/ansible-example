@@ -19,7 +19,7 @@
 
       - name: create database
         mysql_db:
-          name: employee_db
+          name: "{{mysql_db_name}}" 
           state: present
           login_host: localhost
           login_port: "{{ mysql_port }}"
